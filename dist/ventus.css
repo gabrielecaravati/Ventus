@@ -335,28 +335,24 @@
 .wm-window.noresizable .wm-window-box button.wm-resize {
   display: none;
 }
-.wm-window.minimizing,
+/*.wm-window.minimizing,
 .wm-window.maximazing {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-transition: all 0.5s ease-out;
-          transition: all 0.5s ease-out;
-}
+	transform: translate3d(0, 0, 0);
+	transition: all .5s ease-out;
+}*/
 .wm-window.closing {
   -webkit-animation: close 0.3s 1 ease-in forwards;
           animation: close 0.3s 1 ease-in forwards;
 }
-.wm-window.opening {
-  -webkit-animation: appear 0.4s 1 ease-out forwards;
-          animation: appear 0.4s 1 ease-out forwards;
-}
+/*.wm-window.opening {
+	animation: appear 0.4s 1 ease-out forwards;
+}*/
 .wm-window.resizing {
   -webkit-transition: none;
           transition: none;
 }
 .wm-window.move {
-  -webkit-animation: wobbly 0.5s 0.2s infinite;
-          animation: wobbly 0.5s 0.2s infinite;
+  /*animation: wobbly 0.5s 0.2s infinite;*/
 }
 .wm-window.move * {
   -webkit-user-select: none;
