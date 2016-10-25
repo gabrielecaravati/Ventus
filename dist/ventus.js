@@ -1131,11 +1131,11 @@ define('ventus/tpl/window', ['handlebars'], function (Handlebars) {
                 'name': 'classname',
                 'hash': {},
                 'data': data
-            }) : helper)) + '">\n\t<div class="wm-window-box">\n\t\t<header class="wm-window-title" unselectable="on">\n\t\t\t<h1 unselectable="on">' + escapeExpression((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helperMissing, typeof helper === functionType ? helper.call(depth0, {
+            }) : helper)) + '">\r\n\t<div class="wm-window-box">\r\n\t\t<header class="wm-window-title" unselectable="on">\r\n\t\t\t<h1 unselectable="on">' + escapeExpression((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helperMissing, typeof helper === functionType ? helper.call(depth0, {
                 'name': 'title',
                 'hash': {},
                 'data': data
-            }) : helper)) + '</h1>\n\t\t\t<div class="wm-button-group">\n\t\t\t\t<button class="wm-minimize">&nbsp;</button>\n\t\t\t\t<button class="wm-maximize">&nbsp;</button>\n\t\t\t\t<button class="wm-close">&nbsp;</button>\n\t\t\t</div>\n\t\t</header>\n\n\t\t<section class="wm-content"></section>\n\n\t\t<button class="wm-resize">&nbsp;</button>\n\t</div>\n\t<div class="wm-window-overlay"></div>\n</div>\n';
+            }) : helper)) + '</h1>\r\n\t\t\t<div class="wm-button-group">\r\n\t\t\t\t<button class="wm-minimize">&nbsp;</button>\r\n\t\t\t\t<button class="wm-maximize">&nbsp;</button>\r\n\t\t\t\t<button class="wm-close">&nbsp;</button>\r\n\t\t\t</div>\r\n\t\t</header>\r\n\r\n\t\t<section class="wm-content"></section>\r\n\r\n\t\t<button class="wm-resize">&nbsp;</button>\r\n\t</div>\r\n\t<div class="wm-window-overlay"></div>\r\n</div>\r\n';
         },
         'useData': true
     });
@@ -2347,9 +2347,13 @@ define('ventus/wm/windowmanager', [
     'ventus/wm/modes/fullscreen'
 ], function ($, Window, View, DefaultMode, ExposeMode, FullscreenMode) {
     'use strict';
-    var WindowManager = function () {
-        this.el = View('<div class="wm-space"><div class="wm-overlay" /></div>');
-        $(document.body).prepend(this.el);
+    var WindowManager = function (containerId) {
+        this.el = View('<div class=\'wm-space\'><div class=\'wm-overlay\' /></div>');
+        if ($('#' + containerId).length === 0) {
+            $(document.body).prepend(this.el);
+        } else {
+            $('#' + containerId).prepend(this.el);
+        }
         this.$overlay = this.el.find('.wm-overlay');
         this.$overlay.css('z-index', this._baseZ - 1);
         this.actions.forEach(function (value) {
@@ -2528,3 +2532,4 @@ define('src/main', [
 
     return require('ventus');
 }));
+
